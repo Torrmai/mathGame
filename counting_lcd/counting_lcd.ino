@@ -1,3 +1,4 @@
+//test lcd whether it works or not
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 //The maximum character of this lcd for used latter are below here

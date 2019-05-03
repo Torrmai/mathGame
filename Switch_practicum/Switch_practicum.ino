@@ -11,7 +11,7 @@
 const int p = 50;
 int now = 0;
 byte h=0,v=0;
-const byte out[4] = {Col1,Col2,Col3,Col4};
+const byte out[4] = {Col4,Col3,Col2,Col1};
 const byte in[4] = {Row1,Row2,Row3,Row4};
 void setup() {
   Serial.begin(9600);
@@ -35,52 +35,52 @@ void loop() {
 switch (key())     //Switch to get which button is pressed. 
    {
             case 0:
-            Serial.println(1);
+            Serial.print(1);
        break;  
             case 1:
-            Serial.println(2);
+            Serial.print(2);
        break;
             case 2:
-            Serial.println(3);
+            Serial.print(3);
        break;
             case 3:
-            Serial.println("A");
+            Serial.print("A");
        break;
             case 4:
-            Serial.println(4);
+            Serial.print(4);
        break;
             case 5:
-            Serial.println(5);
+            Serial.print(5);
        break;
             case 6:
-            Serial.println(6);
+            Serial.print(6);
        break;
             case 7:
-            Serial.println("B");
+            Serial.print("B");
        break;
             case 8:
-            Serial.println(7);
+            Serial.print(7);
        break;
             case 9:
-            Serial.println(8);
+            Serial.print(8);
        break;
             case 10:
-            Serial.println(9);
+            Serial.print(9);
        break;
             case 11:
-            Serial.println("C");
+            Serial.print("C");
        break;
             case 12:
-            Serial.println("*");
+            Serial.print("<-");
        break;
             case 13:
-            Serial.println(0);
+            Serial.print(0);
        break;
             case 14:
-            Serial.println("#");
+            Serial.print("->");
        break;
             case 15:
-            Serial.println("D");
+            Serial.print("D");
        break;
             default:
             ;

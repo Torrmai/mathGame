@@ -8,8 +8,8 @@ you have to have
 
 - 2 Arduino UNO or equivalent
 
-- i2c LCD
+- 1 i2c LCD
 
-- matrix button
+- 1 matrix button (4x4)
 
-- 7 segment lcd
+- 1 7-segment lcd (4 digits version)

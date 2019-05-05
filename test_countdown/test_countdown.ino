@@ -211,15 +211,6 @@ void setup()
 void loop() 
 {
   digitalWrite(D1, HIGH);   
-  digitalWrite(D2, LOW);   
-  digitalWrite(pinA, LOW);   
-  digitalWrite(pinB, LOW);   
-  digitalWrite(pinC, LOW);   
-  digitalWrite(pinD, LOW);   
-  digitalWrite(pinE, LOW);   
-  digitalWrite(pinF, LOW);   
-  digitalWrite(pinG, HIGH);
-  digitalWrite(D1, LOW);   
   digitalWrite(D2, HIGH);   
   digitalWrite(pinA, LOW);   
   digitalWrite(pinB, LOW);   

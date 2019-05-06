@@ -92,6 +92,7 @@ static int inp(struct pt *pt)
         }
       }
     }
+    //else Serial.println("Lost connection");
   }
   PT_END(pt);
 }

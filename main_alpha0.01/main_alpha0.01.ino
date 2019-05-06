@@ -5,17 +5,20 @@
 */
 #define SEC 1000 // millis second sometime is hard to read so let define it thousand millis sec =  1 sec to make life more easier 
 #include <pt.h>
+#include <math.h>
 static struct pt pt_inp,pt_count_down;
 bool time_out =  false,preesed = false;
-int digit = 0;int tmp = 0;int rd_inp = 0;
-int pw(int a,int b)
+int digit = 0;int tmp = 0;
+int rd_inp[5];int ans = 0;
+void Answer()
 {
-  int rtn = 1;
-  for(int i=0;i<b;i++)
+  int j = 0;
+  for(int i = digit;i>=0;i++)
   {
-    rtn *= a;
+    ans += rd_inp[i]*pow(10,j);
+    rd_inp[i] = 0;
+    j++;
   }
-  return rtn;
 }
 static int countDown(struct pt *pt)
 {
@@ -29,8 +32,9 @@ static int countDown(struct pt *pt)
     if(tmp == 10)//อยากให้TIMEOUTเป็นกี่วิก็เปลี่ยนตรงนี้นะฮะ
     {
       Serial.println("TIME OUT!!!!");
+      Answer();
+      Serial.println(ans);
       tmp = 0;
-      rd_inp =  0;
       digit = 0;
       time_out = true;     
     }
@@ -57,15 +61,16 @@ static int inp(struct pt *pt)
         // rd == 'A'
         if(rd == 17)
         {
+          Answer();
+          Serial.println(ans);
           tmp = 0;//reset time to 0 when answer
-          rd_inp = 0;//ยังไม่ได้รวมกับตอน Random ตัวเกม
           digit = 0;//ยังไม่ได้รวมกับตอน Random ตัวเกม
         }
         else{
           Serial.print(tmp);
           Serial.print(" :t-> ");
-          rd_inp += rd*pw(10,digit);
-          Serial.println(rd_inp);
+          Serial.println(rd);
+          rd_inp[digit] = rd;
           digit++;
         }
       }

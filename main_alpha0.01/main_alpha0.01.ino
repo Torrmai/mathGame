@@ -6,13 +6,20 @@
 #define SEC 1000 // millis second sometime is hard to read so let define it thousand millis sec =  1 sec to make life more easier 
 #include <pt.h>
 #include <math.h>
+#include <LiquidCrystal_I2C.h>
+//for lcd
+const int nCols = 16;
+const int nRows = 2;
+LiquidCrystal_I2C lcd(0x27, nCols,nRows);
+int lcd_index = 0;
+//for progam
 static struct pt pt_inp,pt_count_down;
 bool time_out =  false,preesed = false;
 int digit = 0;int tmp = 0;
-int rd_inp[5];int ans = 0;
+int rd_inp[6];int ans = 0;
 void reset()
 {
-  for(int i = 0;i<5;i++)
+  for(int i = 0;i<6;i++)
     {rd_inp[i] = -1;
     Serial.print("reset->  ");
     Serial.println(rd_inp[i]);
@@ -47,6 +54,8 @@ static int countDown(struct pt *pt)
       Answer();
       reset();
       Serial.println(ans);
+      lcd_index = 0;
+      lcd.clear();
       tmp = 0;
       digit = 0;
       time_out = true;
@@ -79,6 +88,8 @@ static int inp(struct pt *pt)
           reset();
           Serial.println(ans);
           tmp = 0;//reset time to 0 when answer
+          lcd_index = 0;
+          lcd.clear();
           digit = 0;//ยังไม่ได้รวมกับตอน Random ตัวเกม
           ans =0;
         }
@@ -87,6 +98,9 @@ static int inp(struct pt *pt)
           Serial.print(" :t-> ");
           Serial.println(rd);
           rd_inp[digit] = rd;
+          lcd.setCursor(lcd_index,1);
+          lcd.print(rd);
+          lcd_index++;
           digit++;
           Serial.println(digit);
         }

@@ -8,17 +8,27 @@
 #include <math.h>
 static struct pt pt_inp,pt_count_down;
 bool time_out =  false,preesed = false;
-int digit = 0;int tmp = 0;
+int digit = -1;int tmp = 0;
 int rd_inp[5];int ans = 0;
+void reset()
+{
+  for(int i = 0;i<5;i++)
+    {rd_inp[i] = -1;
+    Serial.print("reset->  ");
+    Serial.println(rd_inp[i]);
+    }
+}
 void Answer()
 {
-  int j = 0;
-  for(int i = digit;i>=0;i++)
+  int tmp = digit - 1;
+  for(int i = 0;i<=digit;i++)
   {
-    ans += rd_inp[i]*pow(10,j);
-    rd_inp[i] = 0;
-    j++;
+    Serial.print("rd_inp[i] i->");
+    Serial.print(i);
+    Serial.print(" value: ");
+    Serial.println(rd_inp[i]*pow(10,digit - i));
   }
+  reset();
 }
 static int countDown(struct pt *pt)
 {
@@ -33,7 +43,8 @@ static int countDown(struct pt *pt)
     {
       Serial.println("TIME OUT!!!!");
       Answer();
-      Serial.println(ans);
+      reset();
+      //Serial.println(ans);
       tmp = 0;
       digit = 0;
       time_out = true;     
@@ -62,9 +73,11 @@ static int inp(struct pt *pt)
         if(rd == 17)
         {
           Answer();
-          Serial.println(ans);
+          reset();
+          //Serial.println(ans);
           tmp = 0;//reset time to 0 when answer
           digit = 0;//ยังไม่ได้รวมกับตอน Random ตัวเกม
+          ans =0;
         }
         else{
           Serial.print(tmp);
@@ -72,6 +85,7 @@ static int inp(struct pt *pt)
           Serial.println(rd);
           rd_inp[digit] = rd;
           digit++;
+          Serial.println(digit);
         }
       }
     }

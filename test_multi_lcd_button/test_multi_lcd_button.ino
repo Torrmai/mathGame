@@ -118,7 +118,7 @@ void loop()
           ans = 0;
           digit = 0;
         }
-        else 
+        else if(rd != 12 && rd != 14 && rd != 18 && rd != 20)
         {
           lcd.print(rd);
           Serial.print(tmp);

@@ -34,57 +34,48 @@ void loop() {
   //case for the button
 switch (key())     //Switch to get which button is pressed. 
    {
-            case 0:
-            Serial.print(1);
-       break;  
-            case 1:
-            Serial.print(2);
-       break;
-            case 2:
-            Serial.print(3);
-       break;
-            case 3:
-            Serial.print("A");
-       break;
-            case 4:
-            Serial.print(4);
-       break;
-            case 5:
-            Serial.print(5);
-       break;
-            case 6:
-            Serial.print(6);
-       break;
-            case 7:
-            Serial.print("B");
-       break;
-            case 8:
-            Serial.print(7);
-       break;
-            case 9:
-            Serial.print(8);
-       break;
-            case 10:
-            Serial.print(9);
-       break;
-            case 11:
-            Serial.print("C");
-       break;
-            case 12:
-            Serial.print("<-");
-       break;
-            case 13:
-            Serial.print(0);
-       break;
-            case 14:
-            Serial.print("->");
-       break;
-            case 15:
-            Serial.print("D");
-       break;
-            default:
-            ;
-}
+        case 2:
+          Serial.print(0);
+          break;
+        case 5:
+          Serial.print(3);
+          break;
+        case 6:
+          Serial.print(2);
+          break;
+        case 7:
+          Serial.print(1);
+          break;
+        case 8:
+          Serial.print("C");
+          break;
+        case 9:
+          Serial.print(6);
+          break;
+        case 10:
+          Serial.print(5);
+          break;
+        case 11:
+          Serial.print(4);
+          break;
+        case 12:
+          Serial.print("A");
+          break;
+        case 13:
+          Serial.print(9);
+          break;
+        case 14:
+          Serial.print(8);
+          break;
+        case 15:
+          Serial.print(7);
+          break;
+        default:
+          ;
+
+
+
+   }
 }
 byte key()
 {

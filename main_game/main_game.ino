@@ -388,7 +388,7 @@ void loop()
       OverState = 0;
       GameState = 6;
     }
-    else if (Serial.available() > 0 && (millis() - AnswerTimeStamp) >= 150)
+    else if (Serial.available() > 0 && (millis() - AnswerTimeStamp) >= 100)
     {
       AnswerTimeStamp = millis();
       int rd;

@@ -8,7 +8,7 @@
 #define Row3 PIN_PB0
 #define Row4 PIN_PB1
 //make bouncing to remove some noise
-const int p = 50;
+const int p = 60;
 int now = 0;
 byte h=0,v=0;
 const byte out[4] = {Col4,Col3,Col2,Col1};
@@ -46,7 +46,7 @@ switch (key())     //Switch to get which button is pressed.
         case 7:
           Serial.print(1);
           break;
-        case 8:
+        case 4:
           Serial.print("C");
           break;
         case 9:

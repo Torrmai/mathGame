@@ -597,6 +597,8 @@ void loop()
       Time = 0;
       Score = 0;
       bonus = 5;
+      F = 1;
+      C = 4;
       GameState = 0;
     }
   }
@@ -629,6 +631,8 @@ void loop()
       Time = 0;
       Score = 0;
       bonus = 5;
+      F = 1;
+      C = 4;
       GameState = 0;
     }
   }

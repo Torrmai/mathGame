@@ -453,7 +453,7 @@ void loop()
       {
         Time = 20;
       }
-      if (Score == 99)
+      if (Score == 40)
       {
         lcd.print("  GAME CLEAR!!");
         Serial.println("GAME CLEAR!!");
@@ -497,66 +497,66 @@ void loop()
         }
         else if (F == 10)
         {
-          F += 5;
+          F += 2;
           C += 10;
           bonus = 6;
           PrepareState = 1;
           PrepareTimeStamp = millis();
           lcd.setCursor(0, 1);
-          lcd.print("Power up!!");
+          lcd.print("Level up!!");
+        }
+        else if (F == 12)
+        {
+          F += 8;
+          C += 10;
+          lcd.clear();
+          GameState = 2;
         }
         else if (F < 100)
         {
-          F += 5;
+          F += 10;
           C += 5;
           lcd.clear();
           GameState = 2;
         }
         else if (F == 100)
         {
-          F += 15;
+          F += 25;
           C += 100;
           bonus = 7;
           PrepareState = 1;
           PrepareTimeStamp = millis();
           lcd.setCursor(0, 1);
-          lcd.print("Power up!!");
+          lcd.print("Level up!!");
         }
-        else if (F < 430)
+        else if (F == 125)
         {
-          F += 15;
-          C += 30;
+          F += 75;
+          C += 50;
           lcd.clear();
           GameState = 2;
         }
-        else if (F == 430)
-        {
-          F += 50;
-          C += 500;
-          lcd.clear();
-          GameState = 2;
-        }
-        else if (F < 1030)
-        {
-          F += 50;
-          C += 100;
-          lcd.clear();
-          GameState = 2;
-        }
-        else if (F == 1030)
+        else if (F < 1000)
         {
           F += 100;
-          C += 1200;
+          C += 50;
+          lcd.clear();
+          GameState = 2;
+        }
+        else if (F == 1000)
+        {
+          F += 400;
+          C += 500;
           bonus = 8;
           PrepareState = 1;
           PrepareTimeStamp = millis();
           lcd.setCursor(0, 1);
-          lcd.print("Power up!!");
+          lcd.print("Level up!!");
         }
         else
         {
-          F += 100;
-          C += 200;
+          F += 400;
+          C += 500;
           lcd.clear();
           GameState = 2;
         }

@@ -25,3 +25,6 @@ Library list in Arduino :
 Source Code : 
 - main_game.ino
 - Switch_practicum.ino
+
+Schematic Directory :
+- Schematic.pdf
